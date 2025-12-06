@@ -1,0 +1,75 @@
+
+# Don't print a new line at the start of the prompt
+add_newline = true
+
+# The format for the prompt (default)
+format = """$all"""
+
+# Timeout for commands executed by starship (in milliseconds)
+command_timeout = 5000
+
+# Defines the right prompt (shown in some shells like zsh)
+# right_format = ""
+
+# The character that appears before the cursor in the prompt
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vicmd_symbol = "[❮](bold blue)"
+
+# Shows the username (disabled by default unless root or SSH)
+[username]
+show_always = false
+style_user = "bold blue"
+style_root = "bold red"
+format = "[$user]($style) "
+
+# Shows the hostname (disabled by default)
+[hostname]
+ssh_only = true
+format = "[$hostname](bold dimmed green) "
+
+# Shows the directory path
+[directory]
+truncation_length = 3
+truncate_to_repo = false
+format = "[$path]($style)[$read_only]($read_only_style) "
+style = "bold cyan"
+#read_only = " "
+
+# Shows the git branch (if inside a git repo)
+[git_branch]
+#symbol = " "
+format = "[$symbol$branch]($style) "
+style = "bold purple"
+
+# Shows the git status (e.g., changes, untracked files)
+[git_status]
+format = "([$all_status$ahead_behind]($style) )"
+style = "bold red"
+
+# Shows the package version if inside a package-managed project
+[package]
+disabled = false
+format = "📦 [$version](bold red) "
+
+# Shows the current node.js version if applicable
+[nodejs]
+format = "⬢ [$version](bold green) "
+
+# Shows the current Rust version if applicable
+[rust]
+format = "🦀 [$version](bold red) "
+
+# Shows the current Python version if applicable
+[python]
+symbol = "🐍 "
+format = "[${symbol}${version}]($style) "
+style = "bold yellow"
+
+# Shows the current time (disabled by default)
+[time]
+disabled = false
+format = "[$time]($style) "
+time_format = "%H:%M:%S"
+style = "bold yellow"
