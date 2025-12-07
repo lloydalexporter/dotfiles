@@ -9,7 +9,7 @@ zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 1
 
 # Plugins
-plugins=(web-search zsh-autosuggestions)
+plugins=(web-search)
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
@@ -18,6 +18,7 @@ alias la='ls -lahGF'
 alias tt='tree -hFC'
 alias ta='tree -haFC'
 alias ff='fastfetch'
+alias ffa='fastfetch -c all'
 alias ssh='ssh -X -A'
 alias gam='~/bin/gam/gam'
 alias mux='tmuxinator'
