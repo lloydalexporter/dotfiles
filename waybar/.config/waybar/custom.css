@@ -1,0 +1,14 @@
+/* Custom waybar style overrides */
+/* Styles defined here override the main style.css */
+
+/* Example overrides (uncomment to use): */
+
+/* Change bar height */
+/* * { font-size: 14px; } */
+
+/* Change workspace button styling */
+/* #workspaces button.active { color: #50fa7b; } */
+
+/* Change clock styling */
+/* #clock { font-weight: bold; } */
+

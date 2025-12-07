@@ -1,0 +1,22 @@
+// Custom waybar config overrides
+// Values defined here take precedence over the main config
+// See: https://man.archlinux.org/man/waybar.5
+{
+  "hyprland/workspaces": {
+    "format-icons": {
+      "default": "",
+      "1": "α",
+      "2": "β",
+      "3": "γ",
+      "4": "δ",
+      "5": "ε",
+      "6": "ζ",
+      "7": "η",
+      "8": "θ",
+      "9": "ι",
+      "10": "κ",
+      "active": "󱓻"
+    }
+  }
+}
+
