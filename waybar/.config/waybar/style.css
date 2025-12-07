@@ -1,4 +1,4 @@
-@import "../omarchy/current/theme/waybar.css";
+@import "/opt/dracula-theme/waybar/waybar/colors.css";
 
 * {
   background-color: @background;
@@ -81,7 +81,3 @@ tooltip {
 #custom-screenrecording-indicator.active {
   color: #a55555;
 }
-
-/* Import custom overrides - your styles go in custom.css */
-@import "custom.css";
-
