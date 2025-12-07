@@ -12,6 +12,10 @@ zstyle ':omz:update' frequency 1
 plugins=(web-search)
 source $ZSH/oh-my-zsh.sh
 
+# Zsh plugins (Arch packages)
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
 # Aliases
 alias ll='ls -lhGF'
 alias la='ls -lahGF'
