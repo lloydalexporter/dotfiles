@@ -61,7 +61,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
-    "on-click": "kitty nmtui"
+    "on-click": "kitty gazelle"
   },
   "battery": {
     "format": "{capacity}% {icon}",
