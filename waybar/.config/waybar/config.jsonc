@@ -5,18 +5,18 @@
   "spacing": 0,
   "height": 26,
   "modules-left": [
-    "clock"
+    "hyprland/workspaces",
+    "group/stats",
   ],
   "modules-center": [
-    "hyprland/workspaces"
+    "clock",
   ],
   "modules-right": [
     "tray",
     "bluetooth",
     "network",
     "pulseaudio",
-    "cpu",
-    "battery"
+    "battery",
   ],
   "hyprland/workspaces": {
     "on-click": "activate",
@@ -43,10 +43,44 @@
       "5": []
     }
   },
+  "group/stats": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 100,
+      "children-class": "tray-group-item"
+    },
+    "modules": [
+      "custom/expand-icon",
+      "custom/temperature",
+      "cpu",
+      "memory",
+      "disk"
+    ]
+  },
+  "custom/expand-icon": {
+    "format": " ",
+    "tooltip": false
+  },
+  "custom/temperature": {
+    "exec": "sensors | awk '/^Package id 0:/ {print int($4)}'",
+    "format": "  {}°C ",
+    "interval": 5,
+    "tooltip": false
+  },
   "cpu": {
     "interval": 5,
-    "format": "󰍛 {usage}%",
+    "format": " {usage}% ",
     "on-click": "kitty btop"
+  },
+  "memory": {
+    "format": " {}% ",
+    "tooltip": true,
+    "tooltip-format": "{used}/{total}GB"
+  },
+  "disk": {
+    "format": "  {percentage_used}% ",
+    "tooltip": true,
+    "tooltip-format": "{used} / {total}"
   },
   "clock": {
     "format": "{:L%A %H:%M}",
@@ -106,6 +140,6 @@
   },
   "tray": {
     "icon-size": 14,
-    "spacing": 10
+    "spacing": 50
   }
 }
