@@ -6,17 +6,17 @@
   "height": 26,
   "modules-left": [
     "hyprland/workspaces",
-    "group/stats",
+    "group/stats"
   ],
   "modules-center": [
-    "clock",
+    "clock"
   ],
   "modules-right": [
     "tray",
     "bluetooth",
     "network",
     "pulseaudio",
-    "battery",
+    "battery"
   ],
   "hyprland/workspaces": {
     "on-click": "activate",
@@ -63,22 +63,22 @@
   },
   "custom/temperature": {
     "exec": "sensors | awk '/^Package id 0:/ {print int($4)}'",
-    "format": "  {}°C ",
+    "format": "{:>3}°C",
     "interval": 5,
     "tooltip": false
   },
   "cpu": {
     "interval": 5,
-    "format": " {usage}% ",
+    "format": "  {usage:>2}%",
     "on-click": "kitty btop"
   },
   "memory": {
-    "format": " {}% ",
+    "format": "  {:>3}%",
     "tooltip": true,
     "tooltip-format": "{used}/{total}GB"
   },
   "disk": {
-    "format": "  {percentage_used}% ",
+    "format": "   {percentage_used:>2}%",
     "tooltip": true,
     "tooltip-format": "{used} / {total}"
   },
@@ -120,7 +120,7 @@
     }
   },
   "bluetooth": {
-    "format": "",
+    "format": "󰂯",
     "format-disabled": "󰂲",
     "format-connected": "󰂱",
     "format-no-controller": "",
