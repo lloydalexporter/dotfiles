@@ -9,7 +9,7 @@ zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 1
 
 # Plugins
-plugins=(git git-auto-fetch history-substring-search web-search zsh-autosuggestions zsh-completions)
+plugins=(git git-auto-fetch web-search zsh-autosuggestions zsh-completions)
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
