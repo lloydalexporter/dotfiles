@@ -23,5 +23,11 @@ alias ssh='ssh -X -A'
 alias gam='~/bin/gam/gam'
 alias mux='tmuxinator'
 
+# Set up SSH Agent forwarding
+if [[ -z "$SSH_AUTH_SOCK" ]] ; then
+  eval "$(ssh-agent -s)" >/dev/null
+  ssh-add -q ~/.ssh/id_ed25519 2>/dev/null
+fi
+
 # Initialise Starship.
 eval "$(starship init zsh)"
