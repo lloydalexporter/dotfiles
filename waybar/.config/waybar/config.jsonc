@@ -80,7 +80,8 @@
   "disk": {
     "format": "   {percentage_used:>2}%",
     "tooltip": true,
-    "tooltip-format": "{used} / {total}"
+    "tooltip-format": "{used} / {total}",
+    "on-click": "kitty bonsai"
   },
   "clock": {
     "format": "{:L%A %H:%M}",
