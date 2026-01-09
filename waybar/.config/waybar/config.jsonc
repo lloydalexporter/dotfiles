@@ -14,6 +14,7 @@
   "modules-right": [
     "tray",
     "bluetooth",
+    "custom/vpn",
     "network",
     "pulseaudio",
     "battery"
@@ -88,6 +89,14 @@
     "format-alt": "{:L%d %B W%V %Y}",
     "tooltip": true,
     "tooltip-format": "{calendar}"
+  },
+  "custom/vpn": {
+    "return-type": "json",
+    "format": "{}",
+    "exec": "$HOME/.config/waybar/scripts/vpn-status.sh",
+    "interval": 2,
+    "exec-on-event": true,
+    "on-click": "kitty --class vpn-chooser -e bash -lc \"$HOME/.config/waybar/scripts/vpn-chooser.sh\""
   },
   "network": {
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],

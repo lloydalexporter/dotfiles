@@ -52,6 +52,23 @@
   margin-right: 13px;
 }
 
+#custom-vpn {
+  margin-right: 13px;
+  min-width: 12px;
+}
+
+#custom-vpn.down {
+  opacity: 0.7;
+}
+
+#custom-vpn.openvpn {
+  color: #7fc6a6;
+}
+
+#custom-vpn.netbird {
+  color: #9aa7d8;
+}
+
 #custom-expand-icon {
   margin-right: 18px;
 }
