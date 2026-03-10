@@ -1,0 +1,6 @@
+alias ll='ls -lhGF'
+alias la='ls -lhaGF'
+alias tt='tree -hFC'
+alias ta='tree -haFC'
+alias ff='fastfetch'
+alias ffa='fastfetch -c all'
