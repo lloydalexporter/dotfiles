@@ -1,6 +1,7 @@
 # Exports
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="nano"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Oh My ZSH Config
 CASE_SENSITIVE="false"
@@ -11,6 +12,10 @@ zstyle ':omz:update' frequency 1
 # Plugins
 plugins=(git git-auto-fetch web-search zsh-autosuggestions zsh-completions)
 source $ZSH/oh-my-zsh.sh
+
+# SSH Agent Forwarding
+/usr/bin/keychain --nogui $HOME/.ssh/id_*
+source $HOME/.keychain/*-sh
 
 # Aliases
 alias ll='ls -lhGF'
@@ -23,11 +28,8 @@ alias ssh='ssh -X -A'
 alias gam='~/bin/gam/gam'
 alias mux='tmuxinator'
 
-# Set up SSH Agent forwarding
-if [[ -z "$SSH_AUTH_SOCK" ]] ; then
-  eval "$(ssh-agent -s)" >/dev/null
-  ssh-add -q ~/.ssh/id_ed25519 2>/dev/null
-fi
-
-# Initialise Starship.
+# Initialise Starship
 eval "$(starship init zsh)"
+
+# Source the custom zsh file
+[[ -f $HOME/.zsh_custom ]] && source $HOME/.zsh_custom
