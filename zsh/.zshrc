@@ -27,6 +27,7 @@ alias ffa='fastfetch -c all'
 alias ssh='ssh -X -A'
 alias gam='~/bin/gam/gam'
 alias mux='tmuxinator'
+alias ..='cd ..'
 
 # Initialise Starship
 eval "$(starship init zsh)"
