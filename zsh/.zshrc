@@ -10,7 +10,7 @@ zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 1
 
 # Plugins
-plugins=(git git-auto-fetch web-search zsh-autosuggestions zsh-completions)
+plugins=(git git-auto-fetch web-search zsh-completions zsh-autosuggestions)
 source ${ZSH}/oh-my-zsh.sh
 
 # SSH Agent Forwarding
