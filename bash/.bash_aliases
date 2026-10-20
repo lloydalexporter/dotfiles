@@ -1,6 +1,22 @@
+
+# Just the usual.
 alias ll='ls -lhGF'
 alias la='ls -lhaGF'
 alias tt='tree -hFC'
 alias ta='tree -haFC'
 alias ff='fastfetch'
 alias ffa='fastfetch -c all'
+
+# Dots to move back directories.
+_dots=".." _path=".."
+for _i in {1..9}; do
+    alias "$_dots"="cd $_path"
+    _dots+="." _path+="/.."
+done
+
+# Tree to different depths.
+for _i in {2..9}; do alias "tt$_i"="tree -L $_i"; done
+for _i in {2..9}; do alias "ta$_i"="tree -L $_i -a"; done
+
+# Unset all of the temp variables.
+unset _dots _path _i
