@@ -17,20 +17,11 @@ source ${ZSH}/oh-my-zsh.sh
 keychain --nogui ${HOME}/.ssh/id_*
 source ${HOME}/.keychain/${HOST}-sh
 
-# Aliases
-alias ll='ls -lhGF'
-alias la='ls -lahGF'
-alias tt='tree -hFC'
-alias ta='tree -haFC'
-alias ff='fastfetch'
-alias ffa='fastfetch -c all'
-alias ssh='ssh -X -A'
-alias gam='~/bin/gam/gam'
-alias mux='tmuxinator'
-alias ..='cd ..'
-
 # Initialise Starship
 eval "$(starship init zsh)"
+
+# Aliases
+[[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
 
 # Source the custom zsh file
 [[ -f ${HOME}/.zsh_custom ]] && source ${HOME}/.zsh_custom
