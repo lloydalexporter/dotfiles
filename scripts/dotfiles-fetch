@@ -1,0 +1,20 @@
+#!/bin/sh
+# Fetches the dotfiles repo without ever prompting for credentials.
+# Run in the background by dotfiles-status.sh, at most once every 15 minutes.
+
+cd "$(dirname "$0")/.." || exit 1
+git_dir="$(git rev-parse --git-dir)" || exit 1
+stamp="$git_dir/dotfiles-fetch-stamp"
+failed="$git_dir/dotfiles-fetch-failed"
+
+if [ -f "$stamp" ] && [ -z "$(find "$stamp" -mmin +15)" ]; then
+    exit 0
+fi
+touch "$stamp"
+
+if GIT_TERMINAL_PROMPT=0 GIT_SSH_COMMAND='ssh -o BatchMode=yes -o ConnectTimeout=10' \
+    git -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=30 fetch --quiet origin; then
+    rm -f "$failed"
+else
+    touch "$failed"
+fi

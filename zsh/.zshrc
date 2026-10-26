@@ -23,5 +23,8 @@ eval "$(starship init zsh)"
 # Aliases
 [[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
 
+# Dotfiles update check
+[[ -f /opt/dotfiles/scripts/dotfiles-status.sh ]] && source /opt/dotfiles/scripts/dotfiles-status.sh
+
 # Source the custom zsh file
 [[ -f ${HOME}/.zsh_custom ]] && source ${HOME}/.zsh_custom
