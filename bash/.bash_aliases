@@ -7,6 +7,9 @@ alias ta='tree -haFC'
 alias ff='fastfetch'
 alias ffa='fastfetch -c all'
 
+# Pull the latest dotfiles and re-stow them.
+alias dfsync='git -C /opt/dotfiles pull --ff-only && /opt/dotfiles/stow.sh'
+
 # Dots to move back directories.
 _dots=".." _path=".."
 for _i in {1..9}; do

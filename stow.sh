@@ -10,8 +10,19 @@ if (( $# > 0 )); then
 else
     pkgs=()
     for dir in "$DOTFILES_DIR"/*/; do
+        [[ "$(basename "$dir")" == scripts ]] && continue
         pkgs+=("$(basename "$dir")")
     done
+fi
+
+# Fetch over HTTPS so background fetches never need an SSH key; push over SSH
+fetch_url="https://github.com/lloydalexporter/dotfiles.git"
+push_url="git@github.com:lloydalexporter/dotfiles.git"
+if [[ "$(git -C "$DOTFILES_DIR" remote get-url origin)" != "$fetch_url" ||
+      "$(git -C "$DOTFILES_DIR" remote get-url --push origin)" != "$push_url" ]]; then
+    echo "REMOTE: fetch over HTTPS, push over SSH"
+    git -C "$DOTFILES_DIR" remote set-url origin "$fetch_url"
+    git -C "$DOTFILES_DIR" remote set-url --push origin "$push_url"
 fi
 
 for pkg in "${pkgs[@]}"; do

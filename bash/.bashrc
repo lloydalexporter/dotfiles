@@ -107,3 +107,8 @@ if ! shopt -oq posix; then
   fi
 fi
 export PATH="$HOME/.local/bin:$PATH"
+
+# Dotfiles update check
+if [ -f /opt/dotfiles/scripts/dotfiles-status.sh ]; then
+    . /opt/dotfiles/scripts/dotfiles-status.sh
+fi
