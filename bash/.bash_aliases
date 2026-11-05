@@ -4,6 +4,7 @@ alias ll='ls -lhGF'
 alias la='ls -lhaGF'
 alias tt='tree -hFC'
 alias ta='tree -haFC'
+alias td='tree -hdFC'
 alias ff='fastfetch'
 alias ffa='fastfetch -c all'
 
@@ -20,6 +21,7 @@ done
 # Tree to different depths.
 for _i in {2..9}; do alias "tt$_i"="tree -hFC -L $_i"; done
 for _i in {2..9}; do alias "ta$_i"="tree -haFC -L $_i"; done
+for _i in {2..9}; do alias "td$_i"="tree -hdFC -L $_i"; done
 
 # Unset all of the temp variables.
 unset _dots _path _i
