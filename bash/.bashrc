@@ -1,6 +1,15 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+#
+# Shared across many machines. Anything Omarchy-specific is guarded so it
+# only runs where Omarchy is actually installed (/usr/share/omarchy exists).
+
+# Omarchy environment (OMARCHY_PATH + PATH), needed even for non-interactive
+# shells, so this stays above the interactive check.
+if [ -r /usr/share/omarchy/default/bash/env-bootstrap ]; then
+    . /usr/share/omarchy/default/bash/env-bootstrap
+fi
 
 # If not running interactively, don't do anything
 case $- in
@@ -87,15 +96,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -107,6 +107,23 @@ if ! shopt -oq posix; then
   fi
 fi
 export PATH="$HOME/.local/bin:$PATH"
+
+# Omarchy only: all the default Omarchy aliases, functions, starship prompt,
+# mise/zoxide/fzf init, etc. (don't mess with these directly, just override
+# them below or in ~/.bash_aliases). This sits before ~/.bash_aliases so our
+# own aliases win over Omarchy's.
+if [ -n "${OMARCHY_PATH:-}" ] && [ -r "$OMARCHY_PATH/default/bash/rc" ]; then
+    . "$OMARCHY_PATH/default/bash/rc"
+fi
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 # Dotfiles update check
 if [ -f /opt/dotfiles/scripts/dotfiles-status.sh ]; then
