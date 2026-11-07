@@ -1,7 +1,16 @@
 
 # Just the usual.
-alias ll='ls -lhGF'
-alias la='ls -lhaGF'
+# Long listings. Omarchy aliases ls to eza, whose flags differ from GNU ls:
+# -h adds a header (sizes are human-readable anyway), -G means grid rather
+# than no-group (eza -l hides the group unless -g), and a bare -F swallows
+# the next argument. So branch on which ls we have.
+if alias ls 2>/dev/null | grep -q eza; then
+    alias ll='ls -l --classify=always'
+    alias la='ls -la --classify=always'
+else
+    alias ll='ls -lhGF'
+    alias la='ls -lhaGF'
+fi
 alias tt='tree -hFC'
 alias ta='tree -haFC'
 alias td='tree -hdFC'
